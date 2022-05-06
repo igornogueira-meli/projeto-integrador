@@ -21,8 +21,9 @@ Quality and safety).
 
     ● To be able to consult the stock, list which products are in which warehouse and data a specific product, also understand in which warehouse it is stored.
 
-    ●  Being able to register the purchase order so that employees
-
+    ● Being able to register the purchase order
+    
+    ● Being able to register Carriers and Shipping Orders for purchases
 ```
 ## About CI/CD this project
  We are using github actions is a continuous integration for build project and make tests after a pull request on branch develop. In case of problem look the github Actions .

@@ -132,4 +132,36 @@ public class GeneralExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(InexistentCarrierException.class)
+    protected ResponseEntity<ErrorDTO> handleInexistentCarrierException(InexistentCarrierException ex){
+        ErrorDTO error = new ErrorDTO("InexistentCarrierException",  ex.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(InexistentShippingOrderException.class)
+    protected ResponseEntity<ErrorDTO> handleInexistentShippingOrderException(InexistentShippingOrderException ex){
+        ErrorDTO error = new ErrorDTO("InexistentShippingOrderException",  ex.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(CarrierUnavailableException.class)
+    protected ResponseEntity<ErrorDTO> handleCarrierUnavailableException(CarrierUnavailableException ex){
+        ErrorDTO error = new ErrorDTO("CarrierUnavailableException",  ex.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(EmptyCarrierListException.class)
+    protected ResponseEntity<ErrorDTO> handleEmptyCarrierListException(EmptyCarrierListException ex){
+        ErrorDTO error = new ErrorDTO("EmptyCarrierListException",  ex.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(CarrierAlreadyExists.class)
+    protected ResponseEntity<ErrorDTO> handleCarrierAlreadyExists(CarrierAlreadyExists ex){
+        ErrorDTO error = new ErrorDTO("CarrierAlreadyExists",  ex.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+
+
 }

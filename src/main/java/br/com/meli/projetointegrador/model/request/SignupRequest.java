@@ -26,12 +26,14 @@ public class SignupRequest {
   @NotBlank
   private String cpf;
 
+  @NotBlank
+  private String address;
+
   private Set<String> role;
 
   @NotBlank
   @Size(min = 6, max = 40)
   private String password;
-
 
   private Long warehouse_id;
 

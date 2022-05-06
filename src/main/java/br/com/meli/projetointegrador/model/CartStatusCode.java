@@ -1,6 +1,6 @@
 package br.com.meli.projetointegrador.model;
 
-public enum StatusCode {
+public enum CartStatusCode {
     CART,
     PURCHASE
 }

@@ -108,6 +108,7 @@ public class ProductIntegrationTest {
                 "    \"username\" : \"customertest\",\n" +
                 "    \"email\" : \"customertest@teste.com.br\",\n" +
                 "    \"cpf\" : \"000-000-000-03\",\n" +
+                "    \"address\" : \"Rua 1\",\n" +
                 "    \"password\" : \"abcd1234\",\n" +
                 "    \"role\" : [\"customer\"]\n" +
                 "}";
@@ -119,6 +120,7 @@ public class ProductIntegrationTest {
                 "    \"username\" : \"stockmanagertest\",\n" +
                 "    \"email\" : \"stockmanagertest@teste.com.br\",\n" +
                 "    \"cpf\" : \"000-000-000-01\",\n" +
+                "    \"address\" : \"Rua 1\",\n" +
                 "    \"password\" : \"abcd1234\",\n" +
                 "    \"warehouse_id\": 2,\n" +
                 "    \"role\" : [\"manager\"]\n" +

@@ -96,6 +96,7 @@ public class DueDateIntegrationTests {
                 "    \"username\" : \"stockmanagertest\",\n" +
                 "    \"email\" : \"stockmanagertest@teste.com.br\",\n" +
                 "    \"cpf\" : \"000-000-000-01\",\n" +
+                "    \"address\" : \"Rua 1\",\n" +
                 "    \"password\" : \"abcd1234\",\n" +
                 "    \"warehouse_id\": 1,\n" +
                 "    \"role\" : [\"manager\"]\n" +
