@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2923f2a4-231d-4cc8-bda6-253a93623794",
+		"_postman_id": "1eb9bd37-70f3-431c-b7ab-5a9dd1e1f3b2",
 		"name": "Projeto Integrador",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -16,7 +16,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdG9ja21hbmFnZXJ0ZXN0IiwiaWF0IjoxNjUxNjA2MDY5LCJleHAiOjE2NTE2OTI0Njl9.uvnrjBq2JC8KvGaX4Nlng0idZ--mwtr7iOBZ2GC9F0VW503pD0H8-sUzrib6XEoTNk01kNi8hZ1yWBvjuHjcWQ",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdG9ja21hbmFnZXJ0ZXN0IiwiaWF0IjoxNjUxNzY0NDU5LCJleHAiOjE2NTE4NTA4NTl9.pOF9AEZ5QBZbh380Spm7z5-3CH3R03csfN9u7lc-GfxKBsAesDV5tFW7yayjULw74sKWcH0WTR7Q9dChI5m92w",
 									"type": "string"
 								}
 							]
@@ -93,7 +93,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjdXN0b21lcnRlc3QiLCJpYXQiOjE2NTE2MDYwMDEsImV4cCI6MTY1MTY5MjQwMX0.7wStt6WGPRabEBF4C97b9NOz6q0EenJOA4lFPEKbS0NxFI6e0Hl5Rp19ONX1P8PyndzPqy27N33NUfQyz9GN9Q",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjdXN0b21lcnRlc3QiLCJpYXQiOjE2NTE3NjQ0OTMsImV4cCI6MTY1MTg1MDg5M30.HxXqd4mvNE4kAiV4P6pUN2lbUV2lh9Fk0MBa0iVQcStQECiYZE1KF-ENiuJcXkJtd83t2tD5zlCZx5afIo3i8g",
 									"type": "string"
 								}
 							]
@@ -102,7 +102,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"orderDate\": \"2022-02-02\",\n    \"customerId\": 1,\n    \"orderStatus\": {\n        \"statusCode\": \"CART\"\n    },\n    \"items\": [\n        {\n            \"advertisementId\": 1,\n            \"quantity\": 2\n        },\n        {\n            \"advertisementId\": 2,\n            \"quantity\": 5\n        }\n    ]\n}",
+							"raw": "{\n    \"orderDate\": \"2022-02-02\",\n    \"customerId\": 1,\n    \"orderStatus\": {\n        \"cartStatusCode\": \"CART\"\n    },\n    \"items\": [\n        {\n            \"advertisementId\": 1,\n            \"quantity\": 2\n        },\n        {\n            \"advertisementId\": 2,\n            \"quantity\": 5\n        }\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -157,7 +157,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjdXN0b21lcnRlc3QiLCJpYXQiOjE2NTE2MDYwMDEsImV4cCI6MTY1MTY5MjQwMX0.7wStt6WGPRabEBF4C97b9NOz6q0EenJOA4lFPEKbS0NxFI6e0Hl5Rp19ONX1P8PyndzPqy27N33NUfQyz9GN9Q",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjdXN0b21lcnRlc3QiLCJpYXQiOjE2NTE3NjQ0OTMsImV4cCI6MTY1MTg1MDg5M30.HxXqd4mvNE4kAiV4P6pUN2lbUV2lh9Fk0MBa0iVQcStQECiYZE1KF-ENiuJcXkJtd83t2tD5zlCZx5afIo3i8g",
 									"type": "string"
 								}
 							]
@@ -189,7 +189,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\" : \"stockmanagertest\",\n    \"username\" : \"stockmanagertest\",\n    \"email\" : \"stockmanagertest@teste.com.br\",\n    \"cpf\" : \"000-000-000-01\",\n    \"password\" : \"abcd1234\",\n    \"warehouse_id\": 1,\n    \"role\" : [\"manager\"]\n}",
+							"raw": "{\n    \"name\" : \"stockmanagertest\",\n    \"username\" : \"stockmanagertest\",\n    \"email\" : \"stockmanagertest@teste.com.br\",\n    \"cpf\" : \"000-000-000-01\",\n    \"address\" : \"Rua 2, Casa 1\",\n    \"password\" : \"abcd1234\",\n    \"warehouse_id\": 1,\n    \"role\" : [\"manager\"]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -215,7 +215,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\" : \"customertest\",\n    \"username\" : \"customertest\",\n    \"email\" : \"customertest@teste.com.br\",\n    \"cpf\" : \"000-000-000-03\",\n    \"password\" : \"abcd1234\",\n    \"role\" : [\"customer\"]\n}",
+							"raw": "{\n    \"name\" : \"customertest\",\n    \"username\" : \"customertest\",\n    \"email\" : \"customertest@teste.com.br\",\n    \"cpf\" : \"000-000-000-03\",\n    \"address\" : \"Rua 1, Casa 2\",\n    \"password\" : \"abcd1234\",\n    \"role\" : [\"customer\"]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -241,7 +241,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\" : \"sellertest\",\n    \"username\" : \"sellertest\",\n    \"email\" : \"sellertest@teste.com.br\",\n    \"cpf\" : \"000-000-000-02\",\n    \"password\" : \"abcd1234\",\n    \"role\" : [\"seller\"]\n}",
+							"raw": "{\n    \"name\" : \"sellertest\",\n    \"username\" : \"sellertest\",\n    \"email\" : \"sellertest@teste.com.br\",\n    \"cpf\" : \"000-000-000-02\",\n    \"address\" : \"Rua 3, Casa 3\",\n    \"password\" : \"abcd1234\",\n    \"role\" : [\"seller\"]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -569,6 +569,267 @@
 									"key": "productId",
 									"value": "1"
 								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Carrier",
+			"item": [
+				{
+					"name": "Create Carrier",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdG9ja21hbmFnZXJ0ZXN0IiwiaWF0IjoxNjUxNzY0NDU5LCJleHAiOjE2NTE4NTA4NTl9.pOF9AEZ5QBZbh380Spm7z5-3CH3R03csfN9u7lc-GfxKBsAesDV5tFW7yayjULw74sKWcH0WTR7Q9dChI5m92w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"licensePlate\": \"ABC-DEF\",\n    \"brand\": \"Fiat\",\n    \"model\": \"Fiorino\",\n    \"warehouseId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/fresh-products/carriers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"carriers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Carrier By License Plate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdG9ja21hbmFnZXJ0ZXN0IiwiaWF0IjoxNjUxNzI1NDY0LCJleHAiOjE2NTE4MTE4NjR9.ZGXgi8eGUeJ211G1OMWnGdURK91FyXv6RxP0MWDJ6vMMU5LbaRAgKDSlVbPTAzeHqd-CMSamMJPSPpcrMIdo1g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/fresh-products/carriers/ABC-DEF",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"carriers",
+								"ABC-DEF"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Carriers By Warehouse Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdG9ja21hbmFnZXJ0ZXN0IiwiaWF0IjoxNjUxNzI1NDY0LCJleHAiOjE2NTE4MTE4NjR9.ZGXgi8eGUeJ211G1OMWnGdURK91FyXv6RxP0MWDJ6vMMU5LbaRAgKDSlVbPTAzeHqd-CMSamMJPSPpcrMIdo1g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/fresh-products/carriers/?warehouseId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"carriers",
+								""
+							],
+							"query": [
+								{
+									"key": "warehouseId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Carriers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdG9ja21hbmFnZXJ0ZXN0IiwiaWF0IjoxNjUxNzI1NDY0LCJleHAiOjE2NTE4MTE4NjR9.ZGXgi8eGUeJ211G1OMWnGdURK91FyXv6RxP0MWDJ6vMMU5LbaRAgKDSlVbPTAzeHqd-CMSamMJPSPpcrMIdo1g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/fresh-products/carriers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"carriers",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shipping Order",
+			"item": [
+				{
+					"name": "Create Shipping Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdG9ja21hbmFnZXJ0ZXN0IiwiaWF0IjoxNjUxNzY0NDU5LCJleHAiOjE2NTE4NTA4NTl9.pOF9AEZ5QBZbh380Spm7z5-3CH3R03csfN9u7lc-GfxKBsAesDV5tFW7yayjULw74sKWcH0WTR7Q9dChI5m92w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"purchaseId\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/fresh-products/shipping_orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"shipping_orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Shipping Orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdG9ja21hbmFnZXJ0ZXN0IiwiaWF0IjoxNjUxODAzMzA4LCJleHAiOjE2NTE4ODk3MDh9.IHT0EXg1Aw3yjeGwpRELF0dRJ9xwyfcgYbLnuf1ubkHZc33wYmBIDIL5O4HLGryDUAJst13O1Jbf36OlX34qJA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/fresh-products/shipping_orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"shipping_orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Shipping Order By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdG9ja21hbmFnZXJ0ZXN0IiwiaWF0IjoxNjUxODAzMzA4LCJleHAiOjE2NTE4ODk3MDh9.IHT0EXg1Aw3yjeGwpRELF0dRJ9xwyfcgYbLnuf1ubkHZc33wYmBIDIL5O4HLGryDUAJst13O1Jbf36OlX34qJA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/fresh-products/shipping_orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"shipping_orders"
 							]
 						}
 					},
