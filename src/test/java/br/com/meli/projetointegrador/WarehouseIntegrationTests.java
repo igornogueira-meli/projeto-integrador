@@ -95,6 +95,7 @@ public class WarehouseIntegrationTests {
                 "    \"username\" : \"stockmanagertest\",\n" +
                 "    \"email\" : \"stockmanagertest@teste.com.br\",\n" +
                 "    \"cpf\" : \"000-000-000-01\",\n" +
+                "    \"address\" : \"Rua 1\",\n" +
                 "    \"password\" : \"abcd1234\",\n" +
                 "    \"warehouse_id\": 2,\n" +
                 "    \"role\" : [\"manager\"]\n" +
@@ -107,6 +108,7 @@ public class WarehouseIntegrationTests {
                 "    \"username\" : \"sellertest\",\n" +
                 "    \"email\" : \"sellertest@teste.com.br\",\n" +
                 "    \"cpf\" : \"000-000-000-02\",\n" +
+                "    \"address\" : \"Rua 1\",\n" +
                 "    \"password\" : \"abcd1234\",\n" +
                 "    \"role\" : [\"seller\"]\n" +
                 "}";
@@ -118,6 +120,7 @@ public class WarehouseIntegrationTests {
                 "    \"username\" : \"customertest\",\n" +
                 "    \"email\" : \"customertest@teste.com.br\",\n" +
                 "    \"cpf\" : \"000-000-000-03\",\n" +
+                "    \"address\" : \"Rua 1\",\n" +
                 "    \"password\" : \"abcd1234\",\n" +
                 "    \"role\" : [\"customer\"]\n" +
                 "}";

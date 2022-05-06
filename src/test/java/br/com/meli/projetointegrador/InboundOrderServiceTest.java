@@ -50,13 +50,13 @@ public class InboundOrderServiceTest {
        SecurityContext securityContext = Mockito.mock(SecurityContext.class);
 
        Mockito.when(securityContext.getAuthentication()).thenReturn(authentication);
-       Mockito.when((UserDetailsImpl) authentication.getPrincipal()).thenReturn(UserDetailsImpl.build(new User(1L, "Igor", "123.456.789-10", "igor@gmail.com", "igor_sn", "abcd1234", Set.of(new Role(1, ERole.ROLE_STOCK_MANAGER)))));
+       Mockito.when((UserDetailsImpl) authentication.getPrincipal()).thenReturn(UserDetailsImpl.build(new User(1L, "Igor", "123.456.789-10","igor@gmail.com", "Rua 1",  "igor_sn", "abcd1234", Set.of(new Role(1, ERole.ROLE_STOCK_MANAGER)))));
        SecurityContextHolder.setContext(securityContext);
    }
 
     private InboundOrder generateInboundOrder(){
-        StockManager stockManagerIgor = new StockManager(1L, new User(1L, "Igor", "123.456.789-10", "igor@gmail.com", "igor_sn", "abcd1234", Set.of(new Role(1, ERole.ROLE_STOCK_MANAGER))), new Warehouse());
-        StockManager stockManagerJederson = new StockManager(2L, new User(2L, "Jederson", "103.476.729-30", "jederson@gmail.com", "jed", "abcd1234", Set.of(new Role(1, ERole.ROLE_STOCK_MANAGER))), new Warehouse());
+        StockManager stockManagerIgor = new StockManager(1L, new User(1L, "Igor", "123.456.789-10", "igor@gmail.com", "Rua 1", "igor_sn", "abcd1234", Set.of(new Role(1, ERole.ROLE_STOCK_MANAGER))), new Warehouse());
+        StockManager stockManagerJederson = new StockManager(2L, new User(2L, "Jederson", "103.476.729-30", "jederson@gmail.com", "Rua 1", "jed", "abcd1234", Set.of(new Role(1, ERole.ROLE_STOCK_MANAGER))), new Warehouse());
 
         Warehouse warehouse = new Warehouse(1L,"Warehouse 1", Arrays.asList(stockManagerIgor, stockManagerJederson), Collections.singletonList(new Section()));
 

@@ -1,7 +1,6 @@
 package br.com.meli.projetointegrador;
 
 import br.com.meli.projetointegrador.model.*;
-import br.com.meli.projetointegrador.repository.ItemRepository;
 import br.com.meli.projetointegrador.repository.OrderStatusRepository;
 import br.com.meli.projetointegrador.service.OrderStatusService;
 import br.com.meli.projetointegrador.service.OrderStatusServiceImpl;
@@ -10,9 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -31,9 +27,9 @@ public class OrderStatusServiceTest {
 
     @Test
     public void saveTest() {
-        OrderStatus orderStatus = new OrderStatus(1L, StatusCode.CART);
+        OrderStatus orderStatus = new OrderStatus(1L, CartStatusCode.CART);
         Mockito.when(orderStatusRepository.save(Mockito.any())).thenReturn(orderStatus);
 
-        assertEquals(orderStatus.getStatusCode(), orderStatusService.save(orderStatus).getStatusCode());
+        assertEquals(orderStatus.getCartStatusCode(), orderStatusService.save(orderStatus).getCartStatusCode());
     }
 }

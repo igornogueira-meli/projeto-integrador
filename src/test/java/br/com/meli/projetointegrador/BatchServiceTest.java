@@ -1,8 +1,7 @@
 package br.com.meli.projetointegrador;
 
-import br.com.meli.projetointegrador.dto.QuantityByWarehouseDTO;
+
 import br.com.meli.projetointegrador.exception.InexistentBatchException;
-import br.com.meli.projetointegrador.exception.InexistentInboundOrderException;
 import br.com.meli.projetointegrador.exception.NotFoundProductException;
 import br.com.meli.projetointegrador.model.*;
 import br.com.meli.projetointegrador.repository.BatchRepository;
@@ -14,8 +13,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;

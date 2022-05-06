@@ -29,7 +29,7 @@ public class User {
     private String name;
     private String cpf;
     private String email;
-
+    private String address;
     private String username;
     private String password;
     @ManyToMany(fetch = FetchType.LAZY)
@@ -39,9 +39,10 @@ public class User {
     private Set<Role> roles = new HashSet<>();
 
 
-    public User(String name, String cpf, String email, String username , String encode) {
+    public User(String name, String cpf, String address, String email, String username , String encode) {
             this.name = name;
             this.cpf = cpf;
+            this.address = address;
             this.email = email;
             this.username = username;
             this.password = encode;

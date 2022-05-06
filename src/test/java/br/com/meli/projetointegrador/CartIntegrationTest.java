@@ -103,7 +103,7 @@ public class CartIntegrationTest {
                 "    \"orderDate\": \"2022-02-02\",\n" +
                 "    \"customerId\": 1,\n" +
                 "    \"orderStatus\": {\n" +
-                "        \"statusCode\": \"CART\"\n" +
+                "        \"cartStatusCode\": \"CART\"\n" +
                 "    },\n" +
                 "    \"items\": [\n" +
                 "        {\n" +
@@ -124,6 +124,7 @@ public class CartIntegrationTest {
                 "    \"username\" : \"customertest\",\n" +
                 "    \"email\" : \"customertest@teste.com.br\",\n" +
                 "    \"cpf\" : \"000-000-000-03\",\n" +
+                "    \"address\" : \"Rua 1\",\n" +
                 "    \"password\" : \"abcd1234\",\n" +
                 "    \"role\" : [\"customer\"]\n" +
                 "}";
@@ -135,6 +136,7 @@ public class CartIntegrationTest {
                 "    \"username\" : \"stockmanagertest\",\n" +
                 "    \"email\" : \"stockmanagertest@teste.com.br\",\n" +
                 "    \"cpf\" : \"000-000-000-01\",\n" +
+                "    \"address\" : \"Rua 1\",\n" +
                 "    \"password\" : \"abcd1234\",\n" +
                 "    \"warehouse_id\": 1,\n" +
                 "    \"role\" : [\"manager\"]\n" +
@@ -271,7 +273,7 @@ public class CartIntegrationTest {
         putPurchaseOrder(status().isOk(), CUSTOMER_JWT);
         Cart cart = cartRepository.findById(1L).orElse(new Cart());
 
-        assertEquals("PURCHASE", cart.getOrderStatus().getStatusCode().name());
+        assertEquals("PURCHASE", cart.getOrderStatus().getCartStatusCode().name());
 
     }
 
@@ -284,7 +286,7 @@ public class CartIntegrationTest {
 
         Cart cart = cartRepository.findById(1L).orElse(new Cart());
 
-        assertEquals( cartWithStatusDTO.getStatusCode(),cart.getOrderStatus().getStatusCode());
+        assertEquals( cartWithStatusDTO.getCartStatusCode(),cart.getOrderStatus().getCartStatusCode());
     }
 
 

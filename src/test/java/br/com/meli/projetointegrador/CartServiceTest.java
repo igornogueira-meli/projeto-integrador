@@ -2,18 +2,20 @@ package br.com.meli.projetointegrador;
 
 import br.com.meli.projetointegrador.model.*;
 import br.com.meli.projetointegrador.repository.CartRepository;
+import br.com.meli.projetointegrador.security.services.UserDetailsImpl;
 import br.com.meli.projetointegrador.service.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -39,10 +41,22 @@ public class CartServiceTest {
     @Mock
     private OrderStatusService orderStatusService;
 
+    @Mock
+    private ShippingOrderService shippingOrderService;
+
     @BeforeEach
-    private void initializeAdvertisementService() {
+    private void initializeCartService() {
         MockitoAnnotations.openMocks(this);
-        this.cartService = new CartServiceImpl(cartRepository, productService, batchService, itemService, customerService, orderStatusService);
+        this.cartService = new CartServiceImpl(cartRepository, productService, batchService, itemService, customerService, orderStatusService, shippingOrderService);
+    }
+
+    private void initializeAuthentication(){
+        Authentication authentication = Mockito.mock(Authentication.class);
+        SecurityContext securityContext = Mockito.mock(SecurityContext.class);
+
+        Mockito.when(securityContext.getAuthentication()).thenReturn(authentication);
+        Mockito.when((UserDetailsImpl) authentication.getPrincipal()).thenReturn(UserDetailsImpl.build(new User(1L, "Igor", "123.456.789-10", "Rua 1", "igor@gmail.com", "igor_sn", "abcd1234", Set.of(new Role(1, ERole.ROLE_STOCK_MANAGER)))));
+        SecurityContextHolder.setContext(securityContext);
     }
 
     @Test
@@ -58,11 +72,13 @@ public class CartServiceTest {
     @Test
     public void saveTest() {
 
+        initializeAuthentication();
+
         Product product = new Product(1L, "Produto 1", 100.0, 2.0, 2.0, Arrays.asList(new Batch(), new Batch()));
         Advertisement advertisement = new Advertisement(1L, "Advertisement 1", BigDecimal.valueOf(100), product, new Seller());
         Item item = new Item(1L, advertisement, new Cart(), 100);
 
-        Cart cart = new Cart(1L, LocalDate.of(2022, 1, 1), new Customer(), BigDecimal.valueOf(0), new OrderStatus(1L, StatusCode.CART), Arrays.asList(item));
+        Cart cart = new Cart(1L, LocalDate.of(2022, 1, 1), new Customer(), BigDecimal.valueOf(0), new OrderStatus(1L, CartStatusCode.CART), Arrays.asList(item));
 
         item.setCart(cart);
 
@@ -83,7 +99,7 @@ public class CartServiceTest {
         Advertisement advertisement = new Advertisement(1L, "Advertisement 1", BigDecimal.valueOf(100), product, new Seller());
         Item item = new Item(1L, advertisement, new Cart(), 100);
 
-        Cart cart = new Cart(1L, LocalDate.of(2022, 1, 1), new Customer(), BigDecimal.valueOf(0), new OrderStatus(1L, StatusCode.PURCHASE), Arrays.asList(item));
+        Cart cart = new Cart(1L, LocalDate.of(2022, 1, 1), new Customer(1L, new User(1L, "Igor", "475", " igor@hotmail.com", "Rua 1", "igor", "abcd234", Set.of(new Role(1, ERole.ROLE_CUSTOMER)))), BigDecimal.valueOf(0), new OrderStatus(1L, CartStatusCode.PURCHASE), Collections.singletonList(item));
 
         item.setCart(cart);
 
@@ -95,6 +111,6 @@ public class CartServiceTest {
         Mockito.when(cartRepository.findById(Mockito.any())).thenReturn(java.util.Optional.of(cart));
         Mockito.when(itemService.save(Mockito.any())).thenReturn(new ArrayList<>());
 
-        assertEquals(cart.getOrderStatus().getStatusCode().name(), cartService.updateCartToPurchase(1L).getOrderStatus().getStatusCode().name());
+        assertEquals(cart.getOrderStatus().getCartStatusCode().name(), cartService.updateCartToPurchase(1L).getOrderStatus().getCartStatusCode().name());
     }
 }

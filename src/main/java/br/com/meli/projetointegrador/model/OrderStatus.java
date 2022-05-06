@@ -20,5 +20,5 @@ public class OrderStatus {
 
     @NotNull(message = "StatusCode missing.")
     @Enumerated(EnumType.STRING)
-    private StatusCode statusCode;
+    private CartStatusCode cartStatusCode;
 }
