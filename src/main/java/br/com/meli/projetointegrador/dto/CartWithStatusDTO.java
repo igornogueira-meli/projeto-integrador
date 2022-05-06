@@ -3,7 +3,7 @@ package br.com.meli.projetointegrador.dto;
 import br.com.meli.projetointegrador.model.Cart;
 
 
-import br.com.meli.projetointegrador.model.StatusCode;
+import br.com.meli.projetointegrador.model.CartStatusCode;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -27,11 +27,11 @@ public class CartWithStatusDTO {
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate orderDate;
-    private StatusCode statusCode;
+    private CartStatusCode cartStatusCode;
     private List<CartProductDTO> items;
 
     public static CartWithStatusDTO map(Cart cart){
-        return new CartWithStatusDTO(cart.getOrderDate(), cart.getOrderStatus().getStatusCode(), CartProductDTO.map(cart.getItems()));
+        return new CartWithStatusDTO(cart.getOrderDate(), cart.getOrderStatus().getCartStatusCode(), CartProductDTO.map(cart.getItems()));
     }
 
 }
