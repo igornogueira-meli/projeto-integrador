@@ -23,4 +23,14 @@ public class Warehouse {
 
     @OneToMany(mappedBy = "warehouse", cascade = CascadeType.ALL)
     private List<Section> sectionList = new ArrayList<Section>();
+
+    @OneToMany(mappedBy = "warehouse", cascade = CascadeType.ALL)
+    private List<Carrier> carrierList;
+
+    public Warehouse(Long id, String name, List<StockManager> stockManagerList, List<Section> sectionList) {
+        this.id = id;
+        this.name = name;
+        this.stockManagerList = stockManagerList;
+        this.sectionList = sectionList;
+    }
 }
