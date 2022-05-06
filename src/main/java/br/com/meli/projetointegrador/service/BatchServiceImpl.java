@@ -8,6 +8,7 @@ import br.com.meli.projetointegrador.repository.BatchRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -58,7 +59,9 @@ public class BatchServiceImpl implements BatchService {
     }
 
     @Override
-    public void decreaseBatch(List<Batch> batches, Integer remainingQuantity) {
+    public List<Batch> decreaseBatch(List<Batch> batches, Integer remainingQuantity) {
+
+        List<Batch> movedBatches = new ArrayList<>();
 
         for (Batch batch:batches){
 
@@ -68,27 +71,36 @@ public class BatchServiceImpl implements BatchService {
                 remainingQuantity = 0;
                 batch.setCurrentQuantity(0);
                 sectionService.updateCurrentSize(1, batch.getSection().getId(), true);
+                movedBatches.add(batch);
             }
             else if(batch.getCurrentQuantity() > remainingQuantity){
                 batch.setCurrentQuantity(batch.getCurrentQuantity() - remainingQuantity);
                 remainingQuantity = 0;
+                movedBatches.add(batch);
             }
             else{
                 remainingQuantity -= batch.getCurrentQuantity();
                 batch.setCurrentQuantity(0);
                 sectionService.updateCurrentSize(1, batch.getSection().getId(), true);
+                movedBatches.add(batch);
             }
             batchRepository.save(batch);
+
         }
+        return movedBatches;
     }
 
     @Override
-    public void takeOutProducts(List<Item> items) {
+    public List<Batch> takeOutProducts(List<Item> items) {
+        List<Batch> movedBatches = new ArrayList<>();
+
         items.forEach(item -> {
             List<Batch> batches = getBatchesWithExpirationDateGreaterThan3Weeks(item.getAdvertisement().getId());
             batches.sort(Comparator.comparing(Batch::getCurrentQuantity));
-            decreaseBatch(batches, item.getQuantity());
+            movedBatches.addAll(decreaseBatch(batches, item.getQuantity()));
         });
+
+        return  movedBatches;
     }
 
 }

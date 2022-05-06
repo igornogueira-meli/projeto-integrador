@@ -17,6 +17,6 @@ public interface BatchService {
     List<Object[]> getBatchStockByWarehouse(Long id);
     List<Batch> getBatchesWithExpirationDateGreaterThan3Weeks(Long productId);
     List<Batch> findAllBatchesByProduct(Long productId);
-    void takeOutProducts(List<Item> items);
-    void decreaseBatch(List<Batch> batches, Integer remainingQuantity);
+    List<Batch> takeOutProducts(List<Item> items);
+    List<Batch> decreaseBatch(List<Batch> batches, Integer remainingQuantity);
 }
